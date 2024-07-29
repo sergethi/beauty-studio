@@ -33,7 +33,7 @@ export default function NavBar() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="end">
+      <NavbarContent className="hidden sm:flex gap-6" justify="end">
         <NavbarItem>
           <Link color="foreground" href="/">
             Home
