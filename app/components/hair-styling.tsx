@@ -12,7 +12,7 @@ const HairStyling = () => {
         />
       </div>
       <div className="max-w-md">
-        <p className="text-2xl font-bold">Hair Styling</p>
+        <p className="text-6xl font-bold">We do hair styling</p>
         <p className="mt-4 mb-6 text-base leading-relaxed">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure sequi
           tenetur nam ipsam excepturi enim voluptate beatae veniam quos

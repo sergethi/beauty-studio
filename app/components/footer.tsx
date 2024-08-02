@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, Link } from "@nextui-org/react";
+import { FaFacebook , FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   const current_year = new Date().getFullYear();
@@ -11,43 +12,37 @@ const Footer = () => {
         </div>
         <div className="flex gap-8 w-full max-w-lg">
           <Link
-            href="https://1manstartup.com/privacy-policy"
+            href=""
             target="_blank"
-            className="btn btn-link"
+            className="text-lg"
+            color="foreground"
           >
             Book
           </Link>
-          {/* <span>|</span> */}
           <Link
-            href="https://1manstartup.com/terms-and-conditions"
+            href=""
             target="_blank"
-            className="btn btn-link"
+            className="text-lg"
+            color="foreground"
           >
             Contact
           </Link>
         </div>
         <div className="flex gap-8 w-full max-w-lg">
           <Link
-            href="https://1manstartup.com/privacy-policy"
+            href=""
             target="_blank"
-            className="btn btn-link"
+            className="text-2xl"
+            color="foreground"
           >
-            Privacy
+            <FaFacebook /> 
           </Link>
-          {/* <span>|</span> */}
           <Link
-            href="https://1manstartup.com/terms-and-conditions"
-            target="_blank"
-            className="btn btn-link"
+            href=""
+            className="text-2xl"
+            color="foreground"
           >
-            Terms
-          </Link>
-          {/* <span>|</span> */}
-          <Link
-            href="mailto:Roads Audio<dave@roadsaudio.com>"
-            className="btn btn-link"
-          >
-            Contact
+            <FaInstagram /> 
           </Link>
         </div>
       </div>

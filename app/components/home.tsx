@@ -7,6 +7,8 @@ import AboutInfo from './about-info'
 import Makeup from './makeup'
 import HairStyling from './hair-styling'
 import Discount from './discount'
+import CustomerRatings from './customer-ratings'
+import BusinessHours from './business-hours'
 
 const Home = () => {
   return (
@@ -16,7 +18,9 @@ const Home = () => {
       <AboutInfo />
       <Makeup />
       <HairStyling />
+      <BusinessHours />
       <Discount />
+      <CustomerRatings />
     </div>
   )
 }
