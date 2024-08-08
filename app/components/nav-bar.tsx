@@ -40,7 +40,7 @@ export default function NavBar() {
           </Link>
         </NavbarItem>
         <NavbarItem >
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/about">
             About
           </Link>
         </NavbarItem>
@@ -50,12 +50,12 @@ export default function NavBar() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/services">
+          <Link color="foreground" href="/pricing">
             Pricing
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/services">
+          <Link color="foreground" href="/contact">
             Contact
           </Link>
         </NavbarItem>
