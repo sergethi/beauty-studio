@@ -77,7 +77,41 @@ const services = [
   },
 ];
 
+const team = [
+  {
+    id: "3958dc9e-712f-4377-85e59-fec4b6a6442a",
+    name: "Fatima",
+    about: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure sequi
+          tenetur nam ipsam excepturi enim voluptate beatae veniam quos
+          deleniti, doloribus libero illo? Nobis perspiciatis maxime similique
+          consequuntur dolores natus.`,
+    image_url:
+      "https://images.unsplash.com/photo-1603988089669-c041ac2fe196?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "3958dc9e-712f-4377-85e59-fec4b6a6442ac",
+    name: "Whitney",
+    about: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure sequi
+          tenetur nam ipsam excepturi enim voluptate beatae veniam quos
+          deleniti, doloribus libero illo? Nobis perspiciatis maxime similique
+          consequuntur dolores natus.`,
+    image_url:
+      "https://images.unsplash.com/photo-1534008757030-27299c4371b6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "3958dc9e-712f-4377-85e59-fec4b6a6442ar",
+    name: "Aicha",
+    about: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure sequi
+          tenetur nam ipsam excepturi enim voluptate beatae veniam quos
+          deleniti, doloribus libero illo? Nobis perspiciatis maxime similique
+          consequuntur dolores natus.`,
+    image_url:
+      "https://images.unsplash.com/photo-1495490140452-5a226aef25d4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D",
+  },
+]
+
 module.exports = {
   customers,
   services,
+  team,
 };
