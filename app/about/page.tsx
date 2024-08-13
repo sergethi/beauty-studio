@@ -4,7 +4,7 @@ import { team } from "../lib/data";
 
 const About = () => {
   return (
-    <div className=" z-0 flex flex-col items-center justify-center max-w-full gap-8 p-10">
+    <div className=" z-0 flex flex-col items-center justify-center max-w-full gap-8 mb-40">
       <div className=" z-1 flex flex-shrink-0 flex-col items-center justify-center w-full max-w-6xl h-[50vh] text-center bg-[url('https://images.unsplash.com/photo-1633681926053-9074b76e21a7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center opacity-1">
         <div className="absolute inset-0 bg-black opacity-50"></div>
         {/* Dark overlay */}
@@ -20,7 +20,6 @@ const About = () => {
           voluptate beatae veniam quos deleniti, doloribus libero illo? Nobis
           perspiciatis maxime similique consequuntur dolores natus.
         </p>
-       
       </div>
       <p className="z-10 text-6xl font-bold text-left max-w-6xl w-full">
         Our team
@@ -28,15 +27,20 @@ const About = () => {
       <div className=" z-10 flex items-center justify-center max-w-6xl w-full gap-8">
         {team.map((member, index) => (
           <div key={index} className="flex flex-col gap-8 max-w-full">
-            <Card shadow="sm" key={index} isPressable className="max-w-lg w-full">
-            <CardBody className="overflow-visible p-0">
-              <Image
-                shadow="sm"
-                radius="lg"
-                alt={member.name}
-                className="w-full h-full object-cover"
-                src={member.image_url}
-              />
+            <Card
+              shadow="sm"
+              key={index}
+              isPressable
+              className="max-w-lg w-full"
+            >
+              <CardBody className="overflow-visible p-0">
+                <Image
+                  shadow="sm"
+                  radius="lg"
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                  src={member.image_url}
+                />
               </CardBody>
             </Card>
             <b className="text-3xl">{member.name}</b>

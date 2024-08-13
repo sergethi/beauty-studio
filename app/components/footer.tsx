@@ -5,12 +5,12 @@ import { FaFacebook , FaInstagram } from "react-icons/fa";
 const Footer = () => {
   const current_year = new Date().getFullYear();
   return (
-    <div className="flex flex-col items-center justify-center gap-10 p-10 w-full">
-      <div className="flex items-center justify-center gap-16 p-10 w-full">
+    <div className="flex flex-col items-center justify-center gap-10 p-10 w-full border-t-1  border-white">
+      <div className="flex items-center justify-center gap-10 p-10 max-w-6xl w-full">
         <div className="max-w-xs w-full">
-          <Image className="object-cover h-auto" alt="logo" src="" />
+          <Image className="object-cover h-auto" alt="logo" src="/images/beautyStudio_logo.png" width={100} height={100} />
         </div>
-        <div className="flex gap-8 w-full max-w-lg">
+        <div className="flex justify-center gap-8 w-full max-w-lg">
           <Link
             href=""
             target="_blank"
@@ -28,7 +28,7 @@ const Footer = () => {
             Contact
           </Link>
         </div>
-        <div className="flex gap-8 w-full max-w-lg">
+        <div className="flex justify-end gap-8 w-full max-w-lg">
           <Link
             href=""
             target="_blank"
