@@ -108,10 +108,46 @@ const team = [
     image_url:
       "https://images.unsplash.com/photo-1495490140452-5a226aef25d4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D",
   },
-]
+];
+
+const hairColor = [
+  { name: "Color", price: "$129+" },
+  { name: "Colour & Balayage or Highlights", price: "$229+" },
+  { name: "Balayage or Highlights", price: "$159+" },
+  { name: "Post Colour Blow Dry", price: "$100+" },
+];
+const hairStyle = [
+  { name: "Color", price: "$129+" },
+  { name: "Colour & Balayage or Highlights", price: "$229+" },
+  { name: "Balayage or Highlights", price: "$159+" },
+  { name: "Post Colour Blow Dry", price: "$100+" },
+];
+const bridalStyle = [
+  { name: "Color", price: "$129+" },
+  { name: "Colour & Balayage or Highlights", price: "$229+" },
+  { name: "Balayage or Highlights", price: "$159+" },
+  { name: "Post Colour Blow Dry", price: "$100+" },
+];
+const makeup = [
+  { name: "Color", price: "$129+" },
+  { name: "Colour & Balayage or Highlights", price: "$229+" },
+  { name: "Balayage or Highlights", price: "$159+" },
+  { name: "Post Colour Blow Dry", price: "$100+" },
+];
+const openHours = [
+  { day: "Monday", time: "Closed" },
+  { day: "Tuesday – Friday", time: "10am – 8pm" },
+  { day: "Saturday", time: "9am – 6pm" },
+  { day: "Sunday", time: "12pm – 6pm" },
+];
 
 module.exports = {
   customers,
   services,
   team,
+  hairColor,
+  hairStyle,
+  bridalStyle,
+  makeup,
+  openHours,
 };

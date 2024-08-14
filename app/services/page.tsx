@@ -54,13 +54,19 @@ const Services = () => {
                 <p className="text-default-500 text-left">
                   {service.description}
                 </p>
+                <a
+                  href="#"
+                  className="inline-block p-3 text-xl text-white bg-danger rounded-lg"
+                >
+                  Learn more
+                </a>
               </CardFooter>
             </Card>
           </div>
         ))}
       </div>
-      <div className="w-6/12 xs:w-full bg-danger rounded-lg">
-        <BusinessHours />
+      <div className="w-full rounded-lg">
+        <BusinessHours className1="max-w-lg" className2="max-w-lg" />
       </div>
     </div>
   );

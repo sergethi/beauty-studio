@@ -61,6 +61,11 @@ export default function NavBar() {
             Contact
           </Link>
         </NavbarItem>
+        <NavbarItem>
+          <Button as={Link} color="danger" href="/book" variant="flat">
+            Book
+          </Button>
+        </NavbarItem>
       </NavbarContent>
       {/* <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
