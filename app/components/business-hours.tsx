@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Image } from "@nextui-org/react";
+import { Button, Image, Link } from "@nextui-org/react";
 import { openHours } from "../lib/data";
 
 const BusinessHours = ({ className1 = "", className2 = "" }) => {
@@ -26,7 +26,7 @@ const BusinessHours = ({ className1 = "", className2 = "" }) => {
             </p>
           ))}
         </div>
-        <Button radius="lg" color="danger" className="p-10 text-xl">
+        <Button radius="lg" as={Link} href="/book" color="danger" className="p-10 text-xl">
           Book an appointement
         </Button>
       </div>

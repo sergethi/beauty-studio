@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Button, Card, Divider, Image, CardBody } from "@nextui-org/react";
+import { Button, Card, Divider, Link, CardBody } from "@nextui-org/react";
 
 const Hero = () => {
   return (
@@ -16,6 +16,8 @@ const Hero = () => {
             radius="none"
             color="danger"
             className="p-10 text-xl"
+            as={Link}
+            href="/book"
           >
             Book an appointement
           </Button>

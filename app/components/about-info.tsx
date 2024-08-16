@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Image } from "@nextui-org/react";
+import { Button, Image, Link } from "@nextui-org/react";
 
 const AboutInfo = () => {
   return (
@@ -19,7 +19,7 @@ const AboutInfo = () => {
           deleniti, doloribus libero illo? Nobis perspiciatis maxime similique
           consequuntur dolores natus.
         </p>
-        <Button radius="none" color="danger" className="p-10 text-xl">
+        <Button radius="lg" color="danger" as={Link} href="/pricing" className="p-10 text-xl">
           Know More
         </Button>
       </div>

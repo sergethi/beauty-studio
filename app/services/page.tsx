@@ -22,7 +22,7 @@ const Services = () => {
         </p>
         <p className="z-10 text-3xl">Learn more about what we offer</p>
         <div className="z-10 w-32 h-1 bg-danger"></div>
-        <Button radius="none" color="danger" className="p-10 text-xl">
+        <Button radius="none" color="danger" as={Link} href="/book" className="p-10 text-xl">
           Book an appointement
         </Button>
       </div>
@@ -55,7 +55,7 @@ const Services = () => {
                   {service.description}
                 </p>
                 <a
-                  href="#"
+                  href="/pricing"
                   className="inline-block p-3 text-xl text-white bg-danger rounded-lg"
                 >
                   Learn more
