@@ -1,5 +1,5 @@
 "use client";
-import React, { useActionState } from "react";
+import React, { useActionState, useState, useEffect, useRef } from "react";
 import { useFormStatus, useFormState } from "react-dom";
 import {
   Card,
@@ -25,18 +25,30 @@ const initialState: State = {
 };
 
 const ContactForm = () => {
-  const [values, setValues] = React.useState(new Set([]));
+  const formRef = useRef<HTMLFormElement>(null);
+  const [values, setValues] = useState(new Set([]));
   const [state, formAction] = useFormState(contactData, initialState);
   const { pending } = useFormStatus();
+
   const handleSelectionChange = (e) => {
     setValues(new Set(e.target.value.split(",")));
   };
+  useEffect(() => {
+    if (!state.errors) {
+      formRef?.current?.reset();
+    }
+  }, [state.errors]);
+
   return (
     <div className="z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center justify-center max-w-6xl w-full gap-8">
       <div className="flex flex-col gap-8 max-w-full">
         <Card shadow="sm" className="max-w-xl w-full p-10">
           <CardBody className="overflow-visible p-0">
-            <form action={formAction} className="flex flex-col gap-10">
+            <form
+              action={formAction}
+              ref={formRef}
+              className="flex flex-col gap-10"
+            >
               <div>
                 <Input
                   isRequired
@@ -61,9 +73,8 @@ const ContactForm = () => {
                   label="Email"
                   name="email"
                   placeholder="Enter your email"
-                  isRequired
                 />
-                 <div aria-live="polite" aria-atomic="true">
+                <div aria-live="polite" aria-atomic="true">
                   {state.errors?.email &&
                     state.errors.email.map((error: string) => (
                       <p className="mt-2 text-sm text-red-500" key={error}>
@@ -80,7 +91,7 @@ const ContactForm = () => {
                   name="phonenumber"
                   placeholder="Enter your phone number"
                 />
-                 <div aria-live="polite" aria-atomic="true">
+                <div aria-live="polite" aria-atomic="true">
                   {state.errors?.phoneNumber &&
                     state.errors.phoneNumber.map((error: string) => (
                       <p className="mt-2 text-sm text-red-500" key={error}>
@@ -115,7 +126,7 @@ const ContactForm = () => {
                   placeholder="Enter your message"
                   className="col-span-12 md:col-span-6 mb-6 md:mb-0"
                 />
-                 <div aria-live="polite" aria-atomic="true">
+                <div aria-live="polite" aria-atomic="true">
                   {state.errors?.contactMessage &&
                     state.errors.contactMessage.map((error: string) => (
                       <p className="mt-2 text-sm text-red-500" key={error}>
@@ -132,7 +143,7 @@ const ContactForm = () => {
                 type="submit"
                 aria-disabled={pending}
               >
-                {pending ? 'Sending...' : 'Send'}
+                {pending ? "Sending..." : "Send"}
               </Button>
               <div aria-live="polite" aria-atomic="true">
                 <p className="mt-2 text-md text-red-500">{state.message}</p>

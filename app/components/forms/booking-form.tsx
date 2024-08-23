@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useFormStatus, useFormState } from "react-dom";
 import {
   Card,
   CardHeader,
@@ -16,102 +17,171 @@ import {
 } from "@nextui-org/react";
 import { services } from "../../lib/data";
 import { DatePicker } from "@nextui-org/react";
-import { now, parseAbsoluteToLocal } from "@internationalized/date";
+import {
+  now,
+  getLocalTimeZone,
+  parseAbsoluteToLocal,
+} from "@internationalized/date";
+import { bookingData, BookingState } from "../../lib/action";
+
+const initialState: BookingState = {
+  message: "",
+  errors: {},
+};
 
 const BookingForm = () => {
-  const [values, setValues] = React.useState(new Set([]));
+  const formRef = useRef<HTMLFormElement>(null);
+  const [selectedServices, setSelectedServices] = React.useState(new Set([]));
   let [date, setDate] = React.useState(
     parseAbsoluteToLocal("2021-04-07T18:45:22Z")
   );
-  const handleSelectionChange = (e) => {
-    setValues(new Set(e.target.value.split(",")));
+  const [state, formAction] = useFormState(bookingData, initialState);
+  const { pending } = useFormStatus();
+
+  const handleSelectionChange = (keys:Iterable<string>) => {
+    setSelectedServices(new Set(keys)));
   };
+  useEffect(() => {
+    if (!state.errors) {
+      formRef?.current?.reset();
+      // setValues(new Set());
+      setSelectedServices(new Set());
+    }
+  }, [state.errors]);
   return (
     <div className="z-10 flex flex-col items-center justify-center max-w-6xl w-full gap-8">
       <div className="flex flex-col gap-8 w-full">
         <Card shadow="sm" className="w-full p-10">
-          <CardBody className="flex gap-10 overflow-visible p-0">
-            <Input
-              isRequired
-              type="text"
-              label="Full name"
-              placeholder="Enter your first name and last name"
-            />
-            <Input
-              type="email"
-              label="Email"
-              placeholder="Enter your email"
-              isRequired
-            />
-            <Input
-              isRequired
-              type="tel"
-              label="Phone number"
-              placeholder="Enter your phone number"
-            />
-            <div className="flex gap-10">
-              <Select
-                isRequired
-                label="Services"
-                selectionMode="multiple"
-                placeholder="Select a service"
-                defaultSelectedKeys={["Makeup"]}
-                className="max-w-md"
-                selectedKeys={values}
-                onChange={handleSelectionChange}
-              >
-                {services.map((service, index) => (
-                  <SelectItem key={index}>{service.name}</SelectItem>
-                ))}
-              </Select>
-              <DatePicker
-                isRequired
-                className="max-w-md"
-                granularity="second"
-                label="Date and time"
-                value={date}
-                onChange={setDate}
-              />
-            </div>
+          <CardBody className="overflow-visible p-0">
+            <form
+              action={formAction}
+              ref={formRef}
+              className="flex flex-col gap-10"
+            >
+              <div>
+                <Input
+                  isRequired
+                  type="text"
+                  label="Full name"
+                  name="fullname"
+                  placeholder="Enter your first name and last name"
+                />
+                <div aria-live="polite" aria-atomic="true">
+                  {state.errors?.fullName &&
+                    state.errors.fullName.map((error: string) => (
+                      <p className="mt-2 text-sm text-red-500" key={error}>
+                        {error}
+                      </p>
+                    ))}
+                </div>
+              </div>
+              <div>
+                <Input
+                  type="email"
+                  label="Email"
+                  name="email"
+                  placeholder="Enter your email"
+                />
+                <div aria-live="polite" aria-atomic="true">
+                  {state.errors?.email &&
+                    state.errors.email.map((error: string) => (
+                      <p className="mt-2 text-sm text-red-500" key={error}>
+                        {error}
+                      </p>
+                    ))}
+                </div>
+              </div>
+              <div>
+                <Input
+                  isRequired
+                  type="tel"
+                  label="Phone number"
+                  name="phonenumber"
+                  placeholder="Enter your phone number"
+                />
+                <div aria-live="polite" aria-atomic="true">
+                  {state.errors?.phoneNumber &&
+                    state.errors.phoneNumber.map((error: string) => (
+                      <p className="mt-2 text-sm text-red-500" key={error}>
+                        {error}
+                      </p>
+                    ))}
+                </div>
+              </div>
+              <div className="flex gap-10">
+                <div>
+                  <Select
+                    label="Services"
+                    selectionMode="multiple"
+                    placeholder="Select a service"
+                    defaultSelectedKeys={["Makeup"]}
+                    className="max-w-md"
+                    selectedKeys={selectedServices}
+                    onSelectionChange={handleSelectionChange}
+                    name="services"
+                  >
+                    {services.map((service, index) => (
+                      <SelectItem key={index} value={service.name}>
+                        {service.name}
+                      </SelectItem>
+                    ))}
+                  </Select>
+                  <div aria-live="polite" aria-atomic="true">
+                    {state.errors?.services &&
+                      state.errors.services.map((error: string) => (
+                        <p className="mt-2 text-sm text-red-500" key={error}>
+                          {error}
+                        </p>
+                      ))}
+                  </div>
+                </div>
 
-            <Textarea
-              variant="flat"
-              label="Additional request"
-              placeholder="Enter your request"
-              className="col-span-12 md:col-span-6 mb-6 md:mb-0"
-            />
-            <Button radius="lg" color="danger" className="p-10 text-xl">
-              Book
-            </Button>
+                <div>
+                  <DatePicker
+                    isRequired
+                    className="max-w-md"
+                    granularity="second"
+                    label="Date and time"
+                    name="datetime"
+                    hideTimeZone
+                    // defaultValue={}}
+                    value={date}
+                    onChange={setDate}
+                  />
+                  <div aria-live="polite" aria-atomic="true">
+                    {state.errors?.dateTime &&
+                      state.errors.dateTime.map((error: string) => (
+                        <p className="mt-2 text-sm text-red-500" key={error}>
+                          {error}
+                        </p>
+                      ))}
+                  </div>
+                </div>
+              </div>
+
+              <Textarea
+                variant="flat"
+                label="Additional request"
+                placeholder="Enter your request"
+                className="col-span-12 md:col-span-6 mb-6 md:mb-0"
+                name="message"
+              />
+              <Button
+                radius="lg"
+                color="danger"
+                className="p-10 text-xl"
+                type="submit"
+                aria-disabled={pending}
+              >
+                {pending ? "Booking..." : "Book"}
+              </Button>
+              <div aria-live="polite" aria-atomic="true">
+                <p className="mt-2 text-md text-red-500">{state.message}</p>
+              </div>
+            </form>
           </CardBody>
         </Card>
       </div>
-      {/* <div className="flex flex-col gap-8 max-w-full">
-        <Card shadow="sm"  className="max-w-xl w-full">
-          <CardBody className="overflow-visible p-0">
-            <div className="flex flex-col gap-40 items-center text-center justify-center p-10">
-              <div className="flex flex-col gap-2 items-center">
-                <div className="text-6xl font-bold">
-                  <FaPhoneAlt />
-                </div>
-                123-456-789
-              </div>
-              <div className="flex flex-col gap-2 items-center">
-                <div className="text-6xl font-bold">
-                  <FaEnvelope />
-                </div>
-                contact@example.com
-              </div>
-              <div className="flex flex-col gap-2 items-center">
-                <div className="text-6xl font-bold">
-                  <FaMapMarkerAlt />
-                </div>
-                Fifth Avenue, New York
-              </div>
-            </div>
-          </CardBody>
-        </Card>
-      </div> */}
     </div>
   );
 };
