@@ -31,21 +31,21 @@ const initialState: BookingState = {
 
 const BookingForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
-  const [selectedServices, setSelectedServices] = React.useState(new Set([]));
+  const [selectedValues, setSelectedValues] = React.useState(new Set([]));
   let [date, setDate] = React.useState(
     parseAbsoluteToLocal("2021-04-07T18:45:22Z")
   );
   const [state, formAction] = useFormState(bookingData, initialState);
   const { pending } = useFormStatus();
 
-  const handleSelectionChange = (keys:Iterable<string>) => {
-    setSelectedServices(new Set(keys)));
+  const handleSelectionChange = (e: any) => {
+    setSelectedValues(new Set(e.target.value.split(",")));
   };
   useEffect(() => {
+    // console.log("selected vals:", selectedValues);
     if (!state.errors) {
       formRef?.current?.reset();
-      // setValues(new Set());
-      setSelectedServices(new Set());
+      setSelectedValues(new Set([]));
     }
   }, [state.errors]);
   return (
@@ -60,7 +60,7 @@ const BookingForm = () => {
             >
               <div>
                 <Input
-                  isRequired
+                  
                   type="text"
                   label="Full name"
                   name="fullname"
@@ -77,6 +77,7 @@ const BookingForm = () => {
               </div>
               <div>
                 <Input
+                  
                   type="email"
                   label="Email"
                   name="email"
@@ -93,7 +94,7 @@ const BookingForm = () => {
               </div>
               <div>
                 <Input
-                  isRequired
+                  
                   type="tel"
                   label="Phone number"
                   name="phonenumber"
@@ -114,14 +115,13 @@ const BookingForm = () => {
                     label="Services"
                     selectionMode="multiple"
                     placeholder="Select a service"
-                    defaultSelectedKeys={["Makeup"]}
                     className="max-w-md"
-                    selectedKeys={selectedServices}
-                    onSelectionChange={handleSelectionChange}
+                    selectedKeys={selectedValues}
+                    onChange={handleSelectionChange}
                     name="services"
                   >
-                    {services.map((service, index) => (
-                      <SelectItem key={index} value={service.name}>
+                    {services.map((service) => (
+                      <SelectItem key={service.name} value={service.name}>
                         {service.name}
                       </SelectItem>
                     ))}
@@ -138,13 +138,12 @@ const BookingForm = () => {
 
                 <div>
                   <DatePicker
-                    isRequired
+                    
                     className="max-w-md"
                     granularity="second"
                     label="Date and time"
                     name="datetime"
                     hideTimeZone
-                    // defaultValue={}}
                     value={date}
                     onChange={setDate}
                   />

@@ -9,6 +9,7 @@ export type ContactState = {
     fullname?: string[];
     email?: string[];
     phonenumber?: string[];
+    services?: string[];
     message?: string[];
   };
   message?: string | null;
@@ -26,11 +27,11 @@ export type BookingState = {
 const phoneRegex = new RegExp(
   /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
 );
-type Service = {
-  name: string;
-  id: string;
-};
-const possibleServices = services.map((service) => service.name);
+// type Service = {
+//   name: string;
+//   id: string;
+// };
+// const possibleServices = services.map((service) => service.name);
 const contactSchema = z.object({
   fullName: z
     .string({
@@ -49,6 +50,7 @@ const contactSchema = z.object({
     })
     .min(5, "must be at least 9 digit")
     .regex(phoneRegex, "Invalid Number!"),
+    services: z.string().array(),
   contactMessage: z
     .string({
       invalid_type_error: "Please enter message.",
@@ -73,12 +75,7 @@ const bookingSchema = z.object({
     })
     .min(5, "must be at least 9 digit")
     .regex(phoneRegex, "Invalid Number!"),
-  services: z.enum(possibleServices as [string, ...string[]], {
-    invalid_type_error: "Please select a service",
-  })
-  .array()
-  .min(1, { message: 'At least one service must be selected' })
-  .max(5, { message: 'No more than 5 services can be selected' }),
+  services: z.string().array().min(1, { message: 'At least one service must be selected' }),
   dateTime: z.string({
     invalid_type_error: "Please select a date and time.",
   }),
@@ -88,8 +85,10 @@ export async function contactData(prevSate: ContactState, formData: FormData) {
     fullName: formData.get("fullname"),
     email: formData.get("email"),
     phoneNumber: formData.get("phonenumber"),
+    services: formData.getAll("services"),
     contactMessage: formData.get("message"),
   });
+  
 
   if (!parse.success) {
     console.log("Failed to prase", parse.error.flatten().fieldErrors);
@@ -104,6 +103,7 @@ export async function contactData(prevSate: ContactState, formData: FormData) {
     "full name": data.fullName,
     email: data.email,
     "phone number": data.phoneNumber,
+    "services": data.services,
     message: data.contactMessage,
   };
   try {
@@ -117,17 +117,18 @@ export async function contactData(prevSate: ContactState, formData: FormData) {
 }
 
 export async function bookingData(prevSate: BookingState, formData: FormData) {
+  console.log("data:", formData)
   const parse = bookingSchema.safeParse({
     fullName: formData.get("fullname"),
     email: formData.get("email"),
     phoneNumber: formData.get("phonenumber"),
-    services: formData.get("services"),
+    services: formData.getAll("services"),
     dateTime: formData.get("datetime"),
   });
 
+
   if (!parse.success) {
     console.log("Failed to prase", parse.error.flatten().fieldErrors);
-    console.log("services:", formData.get("services") )
     return {
       errors: parse.error.flatten().fieldErrors,
       message: "Something went wrong!",

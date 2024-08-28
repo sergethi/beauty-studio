@@ -30,12 +30,13 @@ const ContactForm = () => {
   const [state, formAction] = useFormState(contactData, initialState);
   const { pending } = useFormStatus();
 
-  const handleSelectionChange = (e) => {
+  const handleSelectionChange = (e:any) => {
     setValues(new Set(e.target.value.split(",")));
   };
   useEffect(() => {
     if (!state.errors) {
       formRef?.current?.reset();
+      setValues(new Set([]))
     }
   }, [state.errors]);
 
@@ -51,7 +52,7 @@ const ContactForm = () => {
             >
               <div>
                 <Input
-                  isRequired
+                  
                   type="text"
                   label="Full name"
                   name="fullname"
@@ -85,7 +86,7 @@ const ContactForm = () => {
               </div>
               <div>
                 <Input
-                  isRequired
+                  
                   type="tel"
                   label="Phone number"
                   name="phonenumber"
@@ -107,19 +108,18 @@ const ContactForm = () => {
                   name="services"
                   selectionMode="multiple"
                   placeholder="Select a service"
-                  defaultSelectedKeys={["Makeup"]}
                   className="max-w-xs"
                   selectedKeys={values}
                   onChange={handleSelectionChange}
                 >
-                  {services.map((service, index) => (
-                    <SelectItem key={index}>{service.name}</SelectItem>
+                  {services.map((service) => (
+                    <SelectItem key={service.name}>{service.name}</SelectItem>
                   ))}
                 </Select>
               </div>
               <div>
                 <Textarea
-                  isRequired
+                  
                   variant="flat"
                   label="Message"
                   name="message"
