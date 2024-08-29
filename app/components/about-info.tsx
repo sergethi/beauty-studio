@@ -8,7 +8,7 @@ const AboutInfo = () => {
         <Image
           className="object-cover w-full h-auto"
           alt="NextUI hero Image"
-          src="https://images.unsplash.com/photo-1633681926053-9074b76e21a7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="/images/salon-benyamin-bohlouli-unsplash.jpg"
         />
       </div>
       <div className="max-w-md">
