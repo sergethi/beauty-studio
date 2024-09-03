@@ -37,7 +37,7 @@ const CustomerRatings = () => {
               <Divider />
               <CardBody>
                 <p>
-                  Make beautiful websites regardless of your design experience.
+                {customer.message}
                 </p>
               </CardBody>
               <Divider />

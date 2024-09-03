@@ -5,7 +5,7 @@ import { team } from "../lib/data";
 const About = () => {
   return (
     <div className=" z-0 flex flex-col items-center justify-center max-w-full gap-8 mb-40">
-      <div className=" z-1 flex flex-shrink-0 flex-col items-center justify-center w-full max-w-6xl h-[50vh] text-center bg-[url('https://images.unsplash.com/photo-1633681926053-9074b76e21a7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center opacity-1">
+      <div className=" z-1 flex flex-shrink-0 flex-col items-center justify-center w-full max-w-6xl h-[50vh] text-center bg-[url('/images/salon-benyamin-bohlouli-unsplash.jpg')] bg-cover bg-center opacity-1">
         <div className="absolute inset-0 bg-black opacity-50"></div>
         {/* Dark overlay */}
         <p className=" z-10 text-6xl font-bold">Who we are</p>
