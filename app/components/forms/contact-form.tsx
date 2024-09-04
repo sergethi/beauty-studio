@@ -30,29 +30,28 @@ const ContactForm = () => {
   const [state, formAction] = useFormState(contactData, initialState);
   const { pending } = useFormStatus();
 
-  const handleSelectionChange = (e:any) => {
+  const handleSelectionChange = (e: any) => {
     setValues(new Set(e.target.value.split(",")));
   };
   useEffect(() => {
     if (!state.errors) {
       formRef?.current?.reset();
-      setValues(new Set([]))
+      setValues(new Set([]));
     }
   }, [state.errors]);
 
   return (
-    <div className="z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center justify-center max-w-6xl w-full gap-8">
-      <div className="flex flex-col gap-8 max-w-full">
-        <Card shadow="sm" className="max-w-xl w-full p-10">
-          <CardBody className="overflow-visible p-0">
+    <div className="z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center justify-center max-w-6xl w-full min-h-[734px] gap-8">
+      <div className=" flex flex-col max-w-full h-full">
+        <Card shadow="sm" className="max-w-xl w-full p-10 h-full">
+          <CardBody className="overflow-visible p-0 h-full">
             <form
               action={formAction}
               ref={formRef}
-              className="flex flex-col gap-10"
+              className="flex flex-col justify-center gap-6 h-full"
             >
               <div>
                 <Input
-                  
                   type="text"
                   label="Full name"
                   name="fullname"
@@ -86,7 +85,6 @@ const ContactForm = () => {
               </div>
               <div>
                 <Input
-                  
                   type="tel"
                   label="Phone number"
                   name="phonenumber"
@@ -119,7 +117,6 @@ const ContactForm = () => {
               </div>
               <div>
                 <Textarea
-                  
                   variant="flat"
                   label="Message"
                   name="message"
@@ -152,10 +149,10 @@ const ContactForm = () => {
           </CardBody>
         </Card>
       </div>
-      <div className="flex flex-col gap-8 max-w-full">
-        <Card shadow="sm" isPressable className="max-w-xl w-full">
-          <CardBody className="overflow-visible p-0">
-            <div className="flex flex-col gap-40 items-center text-center justify-center p-10">
+      <div className="flex flex-col max-w-full h-full">
+        <Card shadow="sm" className="max-w-xl w-full h-full">
+          <CardBody className="overflow-visible p-0 h-ful">
+            <div className="flex flex-col gap-32 items-center text-center justify-center p-10 h-full">
               <div className="flex flex-col gap-2 items-center">
                 <div className="text-6xl font-bold">
                   <FaPhoneAlt />
