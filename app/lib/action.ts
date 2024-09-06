@@ -1,8 +1,20 @@
 "use server";
 import { z } from "zod";
+// import { JSDOM } from 'jsdom';
+import DOMPurify from "isomorphic-dompurify";
+
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { services } from "./data";
+
+// Create a window object for DOMPurify to use
+// const window = new JSDOM('').window;
+// const DOMPurify = createDOMPurify(window);
+
+//Sanitize function
+function sanitizeInput(input: string) {
+  return DOMPurify.sanitize(input);
+}
 
 export type ContactState = {
   errors?: {
@@ -82,11 +94,11 @@ const bookingSchema = z.object({
 });
 export async function contactData(prevSate: ContactState, formData: FormData) {
   const parse = contactSchema.safeParse({
-    fullName: formData.get("fullname"),
-    email: formData.get("email"),
-    phoneNumber: formData.get("phonenumber"),
+    fullName: sanitizeInput(formData.get("fullname") as string),
+    email: sanitizeInput(formData.get("email") as string),
+    phoneNumber: sanitizeInput(formData.get("phonenumber") as string),
     services: formData.getAll("services"),
-    contactMessage: formData.get("message"),
+    contactMessage: sanitizeInput(formData.get("message") as string),
   });
   
 
