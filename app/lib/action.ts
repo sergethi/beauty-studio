@@ -1,15 +1,7 @@
 "use server";
 import { z } from "zod";
-// import { JSDOM } from 'jsdom';
 import DOMPurify from "isomorphic-dompurify";
 
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
-import { services } from "./data";
-
-// Create a window object for DOMPurify to use
-// const window = new JSDOM('').window;
-// const DOMPurify = createDOMPurify(window);
 
 //Sanitize function
 function sanitizeInput(input: string) {
@@ -33,6 +25,7 @@ export type BookingState = {
     phonenumber?: string[];
     services?: string[];
     datetime?: string[];
+    message?: string[];
   };
   message?: string | null;
 };
@@ -91,6 +84,8 @@ const bookingSchema = z.object({
   dateTime: z.string({
     invalid_type_error: "Please select a date and time.",
   }),
+  bookMessage: z
+    .string()
 });
 export async function contactData(prevSate: ContactState, formData: FormData) {
   const parse = contactSchema.safeParse({
@@ -131,11 +126,12 @@ export async function contactData(prevSate: ContactState, formData: FormData) {
 export async function bookingData(prevSate: BookingState, formData: FormData) {
   console.log("data:", formData)
   const parse = bookingSchema.safeParse({
-    fullName: formData.get("fullname"),
-    email: formData.get("email"),
-    phoneNumber: formData.get("phonenumber"),
+    fullName: sanitizeInput(formData.get("fullname") as string),
+    email: sanitizeInput(formData.get("email") as string),
+    phoneNumber: sanitizeInput(formData.get("phonenumber") as string),
     services: formData.getAll("services"),
     dateTime: formData.get("datetime"),
+    bookMessage: sanitizeInput(formData.get("message") as string),
   });
 
 
@@ -153,7 +149,8 @@ export async function bookingData(prevSate: BookingState, formData: FormData) {
     "email": data.email,
     "phone number": data.phoneNumber,
     "services": data.services,
-    "date time": data.dateTime
+    "date time": data.dateTime,
+    "optional message": data.bookMessage,
   };
   try {
     

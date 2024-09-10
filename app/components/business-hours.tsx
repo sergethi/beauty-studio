@@ -2,7 +2,14 @@ import React from "react";
 import { Button, Image, Link } from "@nextui-org/react";
 import { openHours } from "../lib/data";
 
-const BusinessHours = ({ className1 = "", className2 = "" }) => {
+interface BusinessHoursProps {
+  className1?: string;  // Optional prop with default value
+  className2?: string;  // Optional prop with default value
+  className3?: string;  // Optional prop with default value
+}
+
+const BusinessHours:React.FC<BusinessHoursProps> = ({ className1 = "", className2 = "", className3="", }) => {
+
   return (
     <div
       className={`flex flex-row-reverse w-full items-center justify-center gap-32 p-10`}
@@ -26,7 +33,8 @@ const BusinessHours = ({ className1 = "", className2 = "" }) => {
             </p>
           ))}
         </div>
-        <Button radius="lg" as={Link} href="/book" color="danger" className="p-10 text-xl">
+         {/* Avoid linking when disabled  href={isDisabled ? undefined : "/book"}*/}
+        <Button radius="lg"  as={Link}  href= "/book"   color="danger" className={`p-10 text-xl ${className3}`}>
           Book an appointement
         </Button>
       </div>

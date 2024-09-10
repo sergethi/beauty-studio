@@ -20,7 +20,7 @@ const Book = () => {
     <BookingForm />
 
     <div className="w-full rounded-lg">
-      <BusinessHours className1="max-w-lg" className2="max-w-lg" />
+      <BusinessHours  className1="max-w-lg" className2="max-w-lg" className3='hidden' />
     </div>
     <Map />
   </div>
