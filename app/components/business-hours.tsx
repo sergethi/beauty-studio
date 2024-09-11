@@ -33,7 +33,6 @@ const BusinessHours:React.FC<BusinessHoursProps> = ({ className1 = "", className
             </p>
           ))}
         </div>
-         {/* Avoid linking when disabled  href={isDisabled ? undefined : "/book"}*/}
         <Button radius="lg"  as={Link}  href= "/book"   color="danger" className={`p-10 text-xl ${className3}`}>
           Book an appointement
         </Button>
