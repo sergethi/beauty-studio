@@ -7,7 +7,7 @@ const AboutInfo = () => {
       <div className="lex-shrink-0 w-full max-w-lg">
         <Image
           className="object-cover w-full h-auto"
-          alt="NextUI hero Image"
+          alt="salon image"
           src="/images/salon-benyamin-bohlouli-unsplash.jpg"
         />
       </div>

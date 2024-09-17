@@ -1,3 +1,5 @@
+// "use client"
+
 import React from "react";
 import { Button, Image, Link } from "@nextui-org/react";
 import { openHours } from "../lib/data";
@@ -17,7 +19,7 @@ const BusinessHours:React.FC<BusinessHoursProps> = ({ className1 = "", className
       <div className={`lex-shrink-0 w-full max-w-lg ${className1}`}>
         <Image
           className="object-cover w-full h-auto"
-          alt="NextUI hero Image"
+          alt="hair dresser Image"
           src="/images/open-hours-obi-unsplash.jpg"
         />
       </div>

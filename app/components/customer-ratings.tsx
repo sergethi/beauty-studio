@@ -21,7 +21,7 @@ const CustomerRatings = () => {
             <Card key={customer.id} className="max-w-lg w-full">
               <CardHeader className="flex gap-3">
                 <Image
-                  alt="nextui logo"
+                  alt={customer.name}
                   height={40}
                   radius="sm"
                   src={customer.image_url}

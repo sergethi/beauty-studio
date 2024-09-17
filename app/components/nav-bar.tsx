@@ -15,8 +15,11 @@ import {
 import logo from "../../public/images/beautyStudio_logo.png";
 import Image from "next/image";
 
+
+
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
 
   const menuItems = [
     "Profile",
@@ -54,12 +57,12 @@ export default function NavBar() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/about">
+          <Link color="foreground" href="/about" >
             About
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/services">
+          <Link color="foreground" href="/services" >
             Services
           </Link>
         </NavbarItem>

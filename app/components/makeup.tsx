@@ -7,7 +7,7 @@ const Makeup = () => {
       <div className="lex-shrink-0 w-full max-w-lg">
         <Image
           className="object-cover w-full h-auto"
-          alt="NextUI hero Image"
+          alt="makeup"
           src="/images/makeup-unsplash.jpg"
         />
       </div>

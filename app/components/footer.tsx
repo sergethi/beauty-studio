@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Image, Link } from "@nextui-org/react";
 import { FaFacebook , FaInstagram } from "react-icons/fa";

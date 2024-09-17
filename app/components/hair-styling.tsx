@@ -7,7 +7,7 @@ const HairStyling = () => {
       <div className="lex-shrink-0 w-full max-w-lg">
         <Image
           className="object-cover w-full h-auto"
-          alt="NextUI hero Image"
+          alt="hair style"
           src="/images/hair-style-clarissa-unsplash.jpg"
         />
       </div>
