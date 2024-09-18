@@ -3,17 +3,13 @@ import Makeup from "../components/pricing/makeup";
 import HairStyling from "../components/pricing/hair-styling";
 import HairColoring from "../components/pricing/hair-coloring";
 import BridalStyling from "../components/pricing/bridal-styling";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Divider,
-  Link,
-  Image,
-  Button,
-} from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
 import BusinessHours from "../components/business-hours";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Pricing",
+};
 
 const Pricing = () => {
   return (

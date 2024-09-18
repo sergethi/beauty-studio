@@ -2,6 +2,11 @@ import React from 'react'
 import ContactForm from '../components/forms/contact-form';
 import BusinessHours from "../components/business-hours";
 import Map from "../components/map";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+};
 
 const Contact = () => {
   return (

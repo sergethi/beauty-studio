@@ -113,6 +113,7 @@ const BookingForm = () => {
                 <div>
                   <Select
                     label="Services"
+                    variant="bordered"
                     selectionMode="multiple"
                     placeholder="Select a service"
                     className="max-w-md"
@@ -121,7 +122,7 @@ const BookingForm = () => {
                     name="services"
                   >
                     {services.map((service) => (
-                      <SelectItem key={service.name} value={service.name}>
+                      <SelectItem key={service.name} value={service.name} className="text-slate-200">
                         {service.name}
                       </SelectItem>
                     ))}

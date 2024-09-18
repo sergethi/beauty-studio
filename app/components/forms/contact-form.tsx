@@ -17,9 +17,9 @@ import {
 } from "@nextui-org/react";
 import { services } from "../../lib/data";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import { contactData, State } from "../../lib/action";
+import { contactData, ContactState } from "../../lib/action";
 
-const initialState: State = {
+const initialState: ContactState = {
   message: "",
   errors: {},
 };
@@ -104,6 +104,7 @@ const ContactForm = () => {
                 <Select
                   label="Services"
                   name="services"
+                  variant="bordered"
                   selectionMode="multiple"
                   placeholder="Select a service"
                   className="max-w-xs"
@@ -111,7 +112,7 @@ const ContactForm = () => {
                   onChange={handleSelectionChange}
                 >
                   {services.map((service) => (
-                    <SelectItem key={service.name}>{service.name}</SelectItem>
+                    <SelectItem key={service.name} className="text-slate-200">{service.name}</SelectItem>
                   ))}
                 </Select>
               </div>

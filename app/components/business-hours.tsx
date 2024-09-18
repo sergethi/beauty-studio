@@ -1,7 +1,8 @@
-// "use client"
 
 import React from "react";
-import { Button, Image, Link } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
+import { Image } from "@nextui-org/image";
+import { Link } from "@nextui-org/link";
 import { openHours } from "../lib/data";
 
 interface BusinessHoursProps {

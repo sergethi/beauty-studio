@@ -1,16 +1,17 @@
 import React from "react";
 import { services } from "../lib/data";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Divider,
-  Link,
-  Image,
-  Button,
-} from "@nextui-org/react";
+import { CardFooter } from "@nextui-org/card";
+import { Button } from "@nextui-org/button";
+import { Image } from "@nextui-org/image";
+import { Link } from "@nextui-org/link";
+import { Card } from "@nextui-org/card";
+import { CardBody } from "@nextui-org/card";
 import BusinessHours from "../components/business-hours";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Services",
+};
 
 const Services = () => {
   return (
@@ -22,7 +23,13 @@ const Services = () => {
         </p>
         <p className="z-10 text-3xl">Learn more about what we offer</p>
         <div className="z-10 w-32 h-1 bg-danger"></div>
-        <Button radius="none" color="danger" as={Link} href="/book" className="p-10 text-xl">
+        <Button
+          radius="none"
+          color="danger"
+          as={Link}
+          href="/book"
+          className="p-10 text-xl"
+        >
           Book an appointement
         </Button>
       </div>

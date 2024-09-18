@@ -2,6 +2,12 @@ import React from 'react'
 import BookingForm from '../components/forms/booking-form';
 import BusinessHours from "../components/business-hours";
 import Map from "../components/map";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Book",
+};
+
 
 const Book = () => {
   return (

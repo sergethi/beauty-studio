@@ -1,6 +1,13 @@
 import React from "react";
-import { Image, Card, CardBody } from "@nextui-org/react";
+import type { Metadata } from "next";
+import { Image } from "@nextui-org/image";
+import { Card } from "@nextui-org/card";
+import { CardBody } from "@nextui-org/card";
 import { team } from "../lib/data";
+
+export const metadata: Metadata = {
+  title: "About",
+};
 
 const About = () => {
   return (
