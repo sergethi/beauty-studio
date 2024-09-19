@@ -60,7 +60,6 @@ const BookingForm = () => {
             >
               <div>
                 <Input
-                  
                   type="text"
                   label="Full name"
                   name="fullname"
@@ -77,7 +76,6 @@ const BookingForm = () => {
               </div>
               <div>
                 <Input
-                  
                   type="email"
                   label="Email"
                   name="email"
@@ -94,7 +92,6 @@ const BookingForm = () => {
               </div>
               <div>
                 <Input
-                  
                   type="tel"
                   label="Phone number"
                   name="phonenumber"
@@ -122,7 +119,11 @@ const BookingForm = () => {
                     name="services"
                   >
                     {services.map((service) => (
-                      <SelectItem key={service.name} value={service.name} className="text-slate-200">
+                      <SelectItem
+                        key={service.name}
+                        value={service.name}
+                        className="text-slate-200"
+                      >
                         {service.name}
                       </SelectItem>
                     ))}
@@ -139,7 +140,6 @@ const BookingForm = () => {
 
                 <div>
                   <DatePicker
-                    
                     className="max-w-md"
                     granularity="second"
                     label="Date and time"

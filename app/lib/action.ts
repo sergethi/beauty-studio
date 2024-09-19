@@ -16,7 +16,7 @@ export type ContactState = {
     services?: string[];
     message?: string[];
   };
-  message?: string | null;
+  message: string;
 };
 export type BookingState = {
   errors?: {
@@ -27,7 +27,7 @@ export type BookingState = {
     datetime?: string[];
     message?: string[];
   };
-  message?: string | null;
+  message: string;
 };
 const phoneRegex = new RegExp(
   /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
@@ -87,7 +87,7 @@ const bookingSchema = z.object({
   bookMessage: z
     .string()
 });
-export async function contactData(prevSate: ContactState, formData: FormData) {
+export async function contactData(prevState: ContactState, formData: FormData) {
   const parse = contactSchema.safeParse({
     fullName: sanitizeInput(formData.get("fullname") as string),
     email: sanitizeInput(formData.get("email") as string),
@@ -116,14 +116,14 @@ export async function contactData(prevSate: ContactState, formData: FormData) {
   try {
     console.log("form data:", formEntries);
 
-    return { message: "Form  submitted successfully" };
+    return { message: "Form submitted successfully" };
   } catch (e) {
     console.log("message:", "Failed to submit");
     return { message: "Failed to submit form" };
   }
 }
 
-export async function bookingData(prevSate: BookingState, formData: FormData) {
+export async function bookingData(prevState: BookingState, formData: FormData) {
   console.log("data:", formData)
   const parse = bookingSchema.safeParse({
     fullName: sanitizeInput(formData.get("fullname") as string),
