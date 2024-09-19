@@ -3,7 +3,7 @@ import { Button, Image, Link } from "@nextui-org/react";
 
 const AboutInfo = () => {
   return (
-    <div className="flex max-w-full w-full items-center justify-center gap-28 p-10">
+    <div className="flex sm:flex-row flex-col max-w-full w-full items-center justify-center gap-28 p-10">
       <div className="lex-shrink-0 w-full max-w-lg">
         <Image
           className="object-cover w-full h-auto"

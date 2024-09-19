@@ -3,7 +3,7 @@ import { Button, Image, Link } from "@nextui-org/react";
 
 const Makeup = () => {
   return (
-    <div className="flex flex-row-reverse w-full items-center justify-center gap-28 p-10">
+    <div className="flex sm:flex-row-reverse flex-col w-full items-center justify-center gap-28 p-10">
       <div className="lex-shrink-0 w-full max-w-lg">
         <Image
           className="object-cover w-full h-auto"

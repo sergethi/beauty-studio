@@ -15,7 +15,7 @@ const BusinessHours:React.FC<BusinessHoursProps> = ({ className1 = "", className
 
   return (
     <div
-      className={`flex flex-row-reverse w-full items-center justify-center gap-32 p-10`}
+      className={`flex sm:flex-row-reverse flex-col w-full items-center justify-center gap-32 p-10`}
     >
       <div className={`lex-shrink-0 w-full max-w-lg ${className1}`}>
         <Image
