@@ -4,6 +4,7 @@ import HairStyling from "../components/pricing/hair-styling";
 import HairColoring from "../components/pricing/hair-coloring";
 import BridalStyling from "../components/pricing/bridal-styling";
 import { Button } from "@nextui-org/button";
+import { Link } from "@nextui-org/link";
 import BusinessHours from "../components/business-hours";
 import type { Metadata } from "next";
 
@@ -21,7 +22,13 @@ const Pricing = () => {
         </p>
         <p className="z-10 text-3xl">Learn more about what we offer</p>
         <div className="z-10 w-32 h-1 bg-danger"></div>
-        <Button radius="none" color="danger" className="p-10 text-xl">
+        <Button
+          radius="none"
+          color="danger"
+          as={Link}
+          href="/book"
+          className="p-10 text-xl"
+        >
           Book an appointement
         </Button>
       </div>

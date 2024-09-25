@@ -24,16 +24,12 @@ export default function NavBar() {
 
 
   const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+   { name:"Home", link:"/"},
+    {name:"About", link: "/about"},
+    {name:"Services", link: "/services"},
+    {name:"Pricing", link: "/pricing"},
+    {name:"Contact", link: "/contact"},
+    {name:"Book", link: "/book"},
   ];
 
   return (
@@ -99,17 +95,15 @@ export default function NavBar() {
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
+                pathname === item.link
                   ? "danger"
                   : "foreground"
               }
               className="w-full"
-              href="#"
+              href={item.link}
               size="lg"
             >
-              {item}
+              {item.name}
             </Link>
           </NavbarMenuItem>
         ))}

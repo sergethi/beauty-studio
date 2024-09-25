@@ -31,7 +31,7 @@ const About = () => {
       <p className="z-10 text-6xl font-bold text-left max-w-6xl w-full">
         Our team
       </p>
-      <div className=" z-10 flex items-center justify-center max-w-6xl w-full gap-8">
+      <div className=" z-10 flex sm:flex-row flex-col items-center justify-center max-w-6xl w-full gap-8">
         {team.map((member, index) => (
           <div key={index} className="flex flex-col gap-8 max-w-full">
             <Card

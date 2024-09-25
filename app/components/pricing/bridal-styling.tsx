@@ -14,7 +14,7 @@ import { bridalStyle } from "../../lib/data";
 
 const BridalStyling = () => {
   return (
-    <div className="z-10 flex w-full max-w-6xl items-center justify-center gap-28">
+    <div className="z-10 flex md:flex-row flex-col w-full max-w-6xl items-center justify-center gap-28">
       <div className="flex-shrink-0 w-full max-w-2xl">
         <Image
           className="object-cover w-full h-auto"
