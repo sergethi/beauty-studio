@@ -9,9 +9,10 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Link,
   Button,
 } from "@nextui-org/react";
+// import {Link} from "@nextui-org/link";
+import Link from 'next/link';
 import logo from "../../public/images/beautyStudio_logo.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -33,7 +34,7 @@ export default function NavBar() {
   ];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} isBordered>
+    <Navbar onMenuOpenChange={setIsMenuOpen} isBordered shouldHideOnScroll>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -94,14 +95,16 @@ export default function NavBar() {
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
-              color={
-                pathname === item.link
-                  ? "danger"
-                  : "foreground"
-              }
-              className="w-full"
+            
+              // color={
+              //   pathname === item.link
+              //     ? "danger"
+              //     : "foreground"
+              // }
+              // className={`w-full text-xl`}
+              className={`w-full text-xl ${pathname === item.link ? "text-danger" : "text-foreground"}`}
               href={item.link}
-              size="lg"
+              // size="lg"
             >
               {item.name}
             </Link>

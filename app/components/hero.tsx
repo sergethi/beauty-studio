@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Button, Card, Divider, Link, CardBody } from "@nextui-org/react";
+import { Button, Card, CardBody } from "@nextui-org/react";
+import { Link } from "@nextui-org/link";
 
 const Hero = () => {
   return (

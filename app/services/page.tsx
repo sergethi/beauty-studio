@@ -3,7 +3,8 @@ import { services } from "../lib/data";
 import { CardFooter } from "@nextui-org/card";
 import { Button } from "@nextui-org/button";
 import { Image } from "@nextui-org/image";
-import { Link } from "@nextui-org/link";
+// import { Link } from "@nextui-org/link";
+import Link from "next/link";
 import { Card } from "@nextui-org/card";
 import { CardBody } from "@nextui-org/card";
 import BusinessHours from "../components/business-hours";
@@ -61,12 +62,12 @@ const Services = () => {
                 <p className="text-default-500 text-left">
                   {service.description}
                 </p>
-                <a
+                <Link
                   href="/pricing"
                   className="inline-block p-3 text-xl text-white bg-danger rounded-lg"
                 >
                   Learn more
-                </a>
+                </Link>
               </CardFooter>
             </Card>
           </div>

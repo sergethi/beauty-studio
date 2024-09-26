@@ -19,7 +19,7 @@ const Discount = () => {
             quibusdam rem vel! Provident, id.
           </p>
           <div className="w-32 h-1 bg-pink-600"></div>
-          <Button radius="none" color="danger" className="p-10 text-xl">
+          <Button radius="none" color="danger" isDisabled={true} className="p-10 text-xl">
             CALL NOW : 123-456-789
           </Button>
         </CardBody>

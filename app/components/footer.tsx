@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Image, Link } from "@nextui-org/react";
+import { Image } from "@nextui-org/react";
+import Link from "next/link";
 import { FaFacebook , FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
@@ -14,16 +15,14 @@ const Footer = () => {
         </div>
         <div className="flex justify-center gap-8 w-full max-w-lg">
           <Link
-            href=""
-            target="_blank"
+            href="/book"
             className="text-lg"
             color="foreground"
           >
             Book
           </Link>
           <Link
-            href=""
-            target="_blank"
+            href="/contact"
             className="text-lg"
             color="foreground"
           >
@@ -41,6 +40,7 @@ const Footer = () => {
           </Link>
           <Link
             href=""
+            target="_blank"
             className="text-2xl"
             color="foreground"
           >
