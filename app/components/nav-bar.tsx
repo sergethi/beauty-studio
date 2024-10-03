@@ -24,7 +24,6 @@ export default function NavBar() {
   const closeMobilMenu = () => {
     setIsMenuOpen(false);
   };
-  console.log("isOpen", isMenuOpen);
 
   const menuItems = [
     { name: "Home", link: "/" },

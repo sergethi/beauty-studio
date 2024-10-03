@@ -9,7 +9,7 @@ const customers = [
     stars: 5,
   },
   {
-    id: "3958dc9e-742f-4377-85e9-fec4b6a6442a",
+    id: "3958dc9e-742f-4377-85e9-fec4b6a6442ab",
     name: "Lee Robinson",
     occupation: "Actress",
     image_url: "https://i.pravatar.cc/150?u=a042f81f4e29026024d",
@@ -18,7 +18,7 @@ const customers = [
     stars: 5,
   },
   {
-    id: "3958dc9e-742f-4377-85e9-fec4b6a6442a",
+    id: "3958dc9e-742f-4377-85e9-fec4b6a6442ac",
     name: "Lee Robinson",
     occupation: "Singer",
     image_url:
@@ -28,7 +28,7 @@ const customers = [
     stars: 5,
   },
   {
-    id: "3958dc9e-742f-4377-85e9-fec4b6a6442a",
+    id: "3958dc9e-742f-4377-85e9-fec4b6a6442af",
     name: "Lee Robinson",
     occupation: "Producer",
     image_url: "https://i.pravatar.cc/300?u=a042581f4e29026704f",

@@ -19,6 +19,20 @@
 body {
   color: black;
 }
+/* Mobile view Custom padding for about page */
+.custm-pad > p{
+  padding: 2.5rem; /* Tailwind's p-10 is 2.5rem */
+}
+.custm-pad > div{
+  padding: 2.5rem; 
+}
+/* Mobile view Custom padding for service page */
+.custm-pad2:nth-child(2){
+  padding: 2.5rem; /* Tailwind's p-10 is 2.5rem */
+}
+.custm-pad2:nth-child(3){
+  padding: 2.5rem; 
+}
 
 /* @layer utilities {
   .text-balance {
