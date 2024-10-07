@@ -47,9 +47,11 @@ export default function NavBar() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Image src={logo} alt="logo" width={60} height={60} />
+          <Link href="/" className="flex items-center">
+            <Image src={logo} alt="logo" width={60} height={60} />
 
-          <p className="font-bold text-inherit">Jess Beauty Studio</p>
+            <p className="font-bold text-inherit">Jess Beauty Studio</p>
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
