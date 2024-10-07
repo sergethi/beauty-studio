@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 const Services = () => {
   return (
-    <div className="z-0 flex flex-col items-center max-w-full gap-8 mb-40 md:p-0 custm-pad2">
+    <div className="z-0 flex flex-col items-center max-w-full gap-8 mb-40">
       <div className="z-1 flex flex-col items-center w-full max-w-6xl h-[50vh] gap-8 p-10 text-center justify-center bg-[url('/images/discount-jamie-unsplash.jpg')] bg-cover bg-center opacity-1">
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <p className="z-10 text-5xl font-bold">
@@ -34,11 +34,11 @@ const Services = () => {
           Book an appointement
         </Button>
       </div>
-      <p className="z-10 text-6xl font-bold text-left max-w-6xl w-full">
+      <p className="z-10 text-6xl font-bold text-left max-w-6xl w-full custm-pad md:p-0">
         Our services
       </p>
 
-      <div className="z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center justify-center max-w-6xl w-full gap-8">
+      <div className="z-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center max-w-6xl w-full gap-8 custm-pad md:p-0">
         {services.map((service, index) => (
           <div key={index} className="flex flex-col gap-8 max-w-full">
             <Card

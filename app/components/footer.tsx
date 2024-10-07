@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <p>
+      <p className="p-10 text-center">
         Copyright © {current_year}, Jess Beauty Studio LLC. All Rights Reserved
       </p>
     </div>

@@ -32,7 +32,7 @@ const Pricing = () => {
           Book an appointement
         </Button>
       </div>
-      <p className="z-10 text-6xl font-bold text-left max-w-6xl w-full">
+      <p className="z-10 text-6xl font-bold text-left max-w-6xl w-full custm-pad md:p-0">
         Our prices
       </p>
       <Makeup />

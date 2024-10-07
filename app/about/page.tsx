@@ -11,13 +11,13 @@ export const metadata: Metadata = {
 
 const About = () => {
   return (
-    <div className=" z-0 flex flex-col items-center justify-center max-w-full gap-8 mb-40 md:p-0 custm-pad">
+    <div className=" z-0 flex flex-col items-center justify-center max-w-full gap-8 mb-40">
       <div className=" z-1 flex flex-shrink-0 flex-col items-center justify-center w-full max-w-6xl h-[50vh] text-center bg-[url('/images/salon-benyamin-bohlouli-unsplash.jpg')] bg-cover bg-center opacity-1">
         <div className="absolute inset-0 bg-black opacity-50"></div>
         {/* Dark overlay */}
         <p className=" z-10 text-6xl font-bold">Who we are</p>
       </div>
-      <div className=" z-10 max-w-6xl">
+      <div className=" z-10 max-w-6xl custm-pad md:p-0">
         <p className="mt-4 mb-6 text-base leading-relaxed text-default-500">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure sequi
           tenetur nam ipsam excepturi enim voluptate beatae veniam quos
@@ -28,10 +28,10 @@ const About = () => {
           perspiciatis maxime similique consequuntur dolores natus.
         </p>
       </div>
-      <p className="z-10 text-6xl font-bold text-left max-w-6xl w-full">
+      <p className="z-10 text-6xl font-bold text-left max-w-6xl w-full custm-pad md:p-0">
         Our team
       </p>
-      <div className=" z-10 flex sm:flex-row flex-col items-center justify-center max-w-6xl w-full gap-8">
+      <div className=" z-10 flex md:flex-row flex-col items-center justify-center max-w-6xl w-full gap-8 custm-pad md:p-0">
         {team.map((member, index) => (
           <div key={index} className="flex flex-col gap-8 max-w-full">
             <Card

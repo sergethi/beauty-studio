@@ -20,7 +20,7 @@ const Book = () => {
       <p className="z-10 text-3xl">Learn more about what we offer</p>
       <div className="z-10 w-32 h-1 bg-danger"></div>
     </div>
-    <p className="z-10 text-6xl font-bold text-left max-w-6xl w-full">
+    <p className="z-10 text-6xl font-bold text-left max-w-6xl w-full custm-pad md:p-0">
       Book a session
     </p>
     <BookingForm />
