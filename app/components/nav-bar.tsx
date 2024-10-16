@@ -16,6 +16,7 @@ import Link from "next/link";
 import logo from "../../public/images/beautyStudio_logo.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { ThemeSwitcher } from "./themeSwitcher";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -47,7 +48,7 @@ export default function NavBar() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-4">
             <Image src={logo} alt="logo" width={60} height={60} />
 
             <p className="font-bold text-inherit">Jess Beauty Studio</p>
@@ -106,6 +107,9 @@ export default function NavBar() {
             Book
           </Button>
         </NavbarItem>
+        <NavbarItem>
+          <ThemeSwitcher />
+        </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, index) => (
@@ -121,6 +125,9 @@ export default function NavBar() {
             </Link>
           </NavbarMenuItem>
         ))}
+        <div className="text-foreground">
+           <ThemeSwitcher />
+        </div>
       </NavbarMenu>
     </Navbar>
   );

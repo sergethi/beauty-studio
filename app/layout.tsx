@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en" className="dark text-foreground bg-background">
       <body className={`${inter.className} antialiased`}>
         <Providers>
-          <div className="dark text-foreground bg-background w-full">
+          <div className="bg-white text-foreground dark:bg-background w-full">
             <NavBar />
             {children}
             <Footer />

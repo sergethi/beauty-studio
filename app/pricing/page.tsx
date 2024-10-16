@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const Pricing = () => {
   return (
     <div className="z-0 flex flex-col items-center max-w-full gap-8 mb-40">
-      <div className="z-1 flex flex-col items-center justify-center w-full max-w-6xl h-[50vh] gap-8 p-10 text-center bg-[url('/images/salon-benyamin-bohlouli-unsplash.jpg')] bg-cover bg-center opacity-1">
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <p className="z-10 text-5xl font-bold">
+      <div className="relative z-1 flex flex-col items-center justify-center w-full max-w-6xl h-[50vh] gap-8 p-10 text-center bg-[url('/images/salon-benyamin-bohlouli-unsplash.jpg')] bg-cover bg-center opacity-1">
+        <div className="absolute z-1 inset-0 bg-black opacity-50"></div>
+        <p className="z-10 text-5xl text-white font-bold">
           Expert Beauty Services for Radiant Results
         </p>
         <p className="z-10 text-3xl">Learn more about what we offer</p>

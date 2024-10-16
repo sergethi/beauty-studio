@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 const About = () => {
   return (
     <div className=" z-0 flex flex-col items-center justify-center max-w-full gap-8 mb-40">
-      <div className=" z-1 flex flex-shrink-0 flex-col items-center justify-center w-full max-w-6xl h-[50vh] text-center bg-[url('/images/salon-benyamin-bohlouli-unsplash.jpg')] bg-cover bg-center opacity-1">
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="relative z-1 flex flex-shrink-0 flex-col items-center justify-center w-full max-w-6xl h-[50vh] text-center bg-[url('/images/salon-benyamin-bohlouli-unsplash.jpg')] bg-cover bg-center opacity-1">
+        <div className="absolute z-1 inset-0 bg-black opacity-50"></div>
         {/* Dark overlay */}
-        <p className=" z-10 text-6xl font-bold">Who we are</p>
+        <p className="z-10 text-6xl text-white font-bold">Who we are</p>
       </div>
       <div className=" z-10 max-w-6xl custm-pad md:p-0">
         <p className="mt-4 mb-6 text-base leading-relaxed text-default-500">
