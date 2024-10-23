@@ -8,6 +8,10 @@ import {
   Input,
   Select,
   SelectItem,
+  Avatar,
+  User,
+  Link,
+  Chip,
   Textarea,
 } from "@nextui-org/react";
 import { services } from "../../lib/data";
@@ -18,6 +22,7 @@ import {
   parseAbsoluteToLocal,
 } from "@internationalized/date";
 import { bookingData, BookingState } from "../../lib/action";
+import { team } from "../../lib/data";
 
 const initialState: BookingState = {
   message: "",
@@ -27,6 +32,7 @@ const initialState: BookingState = {
 const BookingForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [selectedValues, setSelectedValues] = React.useState(new Set([]));
+  const [selectedMember, setSelectedMember] = React.useState(new Set([]));
   let [date, setDate] = React.useState(
     parseAbsoluteToLocal("2021-04-07T18:45:22Z")
   );
@@ -34,7 +40,9 @@ const BookingForm = () => {
   const { pending } = useFormStatus();
 
   const handleSelectionChange = (e: any) => {
+    console.log("e target type: ", e);
     setSelectedValues(new Set(e.target.value.split(",")));
+    // setSelectedMember(new Set(e.target.value.split(",")));
   };
   useEffect(() => {
     // console.log("selected vals:", selectedValues);
@@ -101,7 +109,7 @@ const BookingForm = () => {
                     ))}
                 </div>
               </div>
-              <div className="flex gap-10">
+              <div className="flex gap-10 max-w-full">
                 <div>
                   <Select
                     label="Services"
@@ -122,6 +130,60 @@ const BookingForm = () => {
                         {service.name}
                       </SelectItem>
                     ))}
+                  </Select>
+                  <div aria-live="polite" aria-atomic="true">
+                    {state.errors?.services &&
+                      state.errors.services.map((error: string) => (
+                        <p className="mt-2 text-sm text-red-500" key={error}>
+                          {error}
+                        </p>
+                      ))}
+                  </div>
+                </div>
+
+                <div className="max-w-xs w-full">
+                  <Select
+                    items={team}
+                    label="Stylists"
+                    variant="bordered"
+                    selectionMode="single"
+                    placeholder="Select a stylist"
+                    className="max-w-xs w-full"
+                    // selectedKeys={selectedMember}
+                    onChange={handleSelectionChange}
+                    name="stylists"
+                    classNames={{
+                      label: "group-data-[filled=true]:-translate-y-5",
+                      base: "max-w-xs",
+                      trigger: "min-h-16 py-2",
+                    }}
+                    renderValue={(items) => {
+                      return items.map((item) => (
+                        <div key={item.key} className="flex items-center gap-2">
+                          <Avatar
+                            alt={item.data?.name}
+                            className="flex-shrink-0"
+                            size="sm"
+                            src={item.data?.image_url}
+                          />
+                          <span>{item.data?.name}</span>
+                        </div>
+                      ));
+                    }}
+                  >
+                    {(user) => (
+                      <SelectItem key={user.id} textValue={user.name} value={user.name}>
+                        <div className="flex gap-2 items-center">
+                          <Avatar
+                            alt={user.name}
+                            className="flex-shrink-0"
+                            size="sm"
+                            src={user.image_url}
+                          />
+                            <span className="text-small text-slate-200">{user.name}</span>
+                        </div>
+                      </SelectItem>
+                    )}
                   </Select>
                   <div aria-live="polite" aria-atomic="true">
                     {state.errors?.services &&
