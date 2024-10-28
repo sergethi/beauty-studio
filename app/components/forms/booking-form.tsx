@@ -31,8 +31,12 @@ const initialState: BookingState = {
 
 const BookingForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
-  const [selectedValues, setSelectedValues] = React.useState(new Set([]));
-  const [selectedMember, setSelectedMember] = React.useState(new Set([]));
+  const [selectedValues, setSelectedValues] = React.useState<Set<string>>(
+    new Set([])
+  );
+  const [selectedMember, setSelectedMember] = React.useState<Set<string>>(
+    new Set([])
+  );
   let [date, setDate] = React.useState(
     parseAbsoluteToLocal("2021-04-07T18:45:22Z")
   );
@@ -40,12 +44,16 @@ const BookingForm = () => {
   const { pending } = useFormStatus();
 
   const handleSelectionChange = (e: any) => {
-    console.log("e target type: ", e);
-    setSelectedValues(new Set(e.target.value.split(",")));
-    // setSelectedMember(new Set(e.target.value.split(",")));
+    const { name, value } = e.target;
+    const selectedSet = new Set<string>(value.split(","));
+    if (name === "services") {
+      setSelectedValues(selectedSet);
+    } else if (name === "stylists") {
+      setSelectedMember(selectedSet);
+    }
   };
+
   useEffect(() => {
-    // console.log("selected vals:", selectedValues);
     if (!state.errors) {
       formRef?.current?.reset();
       setSelectedValues(new Set([]));
@@ -109,8 +117,8 @@ const BookingForm = () => {
                     ))}
                 </div>
               </div>
-              <div className="flex gap-10 max-w-full">
-                <div>
+              <div className="sm:flex-row sm:max-w-full flex flex-col gap-10 max-w-full">
+                <div className="w-full">
                   <Select
                     label="Services"
                     variant="bordered"
@@ -141,7 +149,7 @@ const BookingForm = () => {
                   </div>
                 </div>
 
-                <div className="max-w-xs w-full">
+                <div className="w-full">
                   <Select
                     items={team}
                     label="Stylists"
@@ -149,7 +157,7 @@ const BookingForm = () => {
                     selectionMode="single"
                     placeholder="Select a stylist"
                     className="max-w-xs w-full"
-                    // selectedKeys={selectedMember}
+                    selectedKeys={selectedMember}
                     onChange={handleSelectionChange}
                     name="stylists"
                     classNames={{
@@ -172,7 +180,11 @@ const BookingForm = () => {
                     }}
                   >
                     {(user) => (
-                      <SelectItem key={user.id} textValue={user.name} value={user.name}>
+                      <SelectItem
+                        key={user.name}
+                        textValue={user.name}
+                        value={user.name}
+                      >
                         <div className="flex gap-2 items-center">
                           <Avatar
                             alt={user.name}
@@ -180,7 +192,9 @@ const BookingForm = () => {
                             size="sm"
                             src={user.image_url}
                           />
-                            <span className="text-small text-slate-200">{user.name}</span>
+                          <span className="text-small text-slate-200">
+                            {user.name}
+                          </span>
                         </div>
                       </SelectItem>
                     )}
@@ -195,7 +209,7 @@ const BookingForm = () => {
                   </div>
                 </div>
 
-                <div>
+                <div className="w-full">
                   <DatePicker
                     className="max-w-md"
                     granularity="second"
@@ -233,7 +247,7 @@ const BookingForm = () => {
                 {pending ? "Booking..." : "Book"}
               </Button>
               <div aria-live="polite" aria-atomic="true">
-                <p className="mt-2 text-md text-red-500">{state.message}</p>
+                <p className= {`${!state.errors ? "mt-2 text-md text-slate-200": "mt-2 text-md text-red-500"}`}>{state.message}</p>
               </div>
             </form>
           </CardBody>

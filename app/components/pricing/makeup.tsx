@@ -14,7 +14,7 @@ const Makeup = () => {
         />
       </div>
       <div className="flex flex-col items-center w-full max-w-md">
-        <p className="text-6xl font-bold mb-8">Makeup</p>
+        <p className="md:text-6xl text-4xl font-bold mb-8">Makeup</p>
         <div className="w-full">
           {makeup.map((service, index) => (
             <div

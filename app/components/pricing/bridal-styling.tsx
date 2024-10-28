@@ -14,7 +14,7 @@ const BridalStyling = () => {
         />
       </div>
       <div className="flex flex-col items-center w-full max-w-md">
-        <p className="text-6xl font-bold mb-8">Bridal Styling</p>
+        <p className="md:text-6xl text-4xl font-bold mb-8">Bridal Styling</p>
         <div className="w-full">
           {bridalStyle.map((service, index) => (
             <div

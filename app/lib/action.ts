@@ -24,6 +24,7 @@ export type BookingState = {
     email?: string[];
     phonenumber?: string[];
     services?: string[];
+    stylists?: string[];
     datetime?: string[];
     message?: string[];
   };
@@ -32,11 +33,7 @@ export type BookingState = {
 const phoneRegex = new RegExp(
   /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
 );
-// type Service = {
-//   name: string;
-//   id: string;
-// };
-// const possibleServices = services.map((service) => service.name);
+
 const contactSchema = z.object({
   fullName: z
     .string({
@@ -81,6 +78,7 @@ const bookingSchema = z.object({
     .min(5, "must be at least 9 digit")
     .regex(phoneRegex, "Invalid Number!"),
   services: z.string().array().min(1, { message: 'At least one service must be selected' }),
+  stylists: z.string().array(),
   dateTime: z.string({
     invalid_type_error: "Please select a date and time.",
   }),
@@ -130,6 +128,7 @@ export async function bookingData(prevState: BookingState, formData: FormData) {
     email: sanitizeInput(formData.get("email") as string),
     phoneNumber: sanitizeInput(formData.get("phonenumber") as string),
     services: formData.getAll("services"),
+    stylists: formData.getAll("stylists"),
     dateTime: formData.get("datetime"),
     bookMessage: sanitizeInput(formData.get("message") as string),
   });
@@ -149,6 +148,7 @@ export async function bookingData(prevState: BookingState, formData: FormData) {
     "email": data.email,
     "phone number": data.phoneNumber,
     "services": data.services,
+    "stylists": data.stylists,
     "date time": data.dateTime,
     "optional message": data.bookMessage,
   };

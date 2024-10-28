@@ -11,7 +11,7 @@ const Discount = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
         {/* Dark overlay */}
         <CardBody className="z-10 flex flex-col items-center gap-12 text-center justify-center">
-          <p className="text-7xl max-w-5xl">GET 10% DISCOUNT ON YOUR FIRST VISIT!</p>
+          <p className="md:text-7xl text-5xl max-w-5xl">GET 10% DISCOUNT ON YOUR FIRST VISIT!</p>
           <p className="text-2xl max-w-xl">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas
             commodi doloremque, repudiandae beatae itaque consequuntur sunt

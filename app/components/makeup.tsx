@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Makeup = () => {
   return (
-    <div className="flex sm:flex-row-reverse flex-col w-full items-center justify-center gap-28 p-10">
+    <div className="flex sm:flex-row-reverse flex-col w-full items-center justify-center sm:gap-28 gap-8 p-10">
       <div className="lex-shrink-0 w-full max-w-lg">
         <Image
           className="object-cover w-full h-auto"
