@@ -14,7 +14,7 @@ import { FaStar } from "react-icons/fa";
 const CustomerRatings = () => {
   return (
     <div className="flex flex-col items-center justify-center max-w-full p-10">
-      <p className="md:text-6xl text-4xl text-pink-600 font-bold">What They Say</p>
+      <p className="md:text-6xl sm:text-4xl xs:text-3xl text-pink-600 font-bold">What They Say</p>
       <div className="flex flex-wrap items-center justify-center max-w-full gap-8 p-10">
         {customers.map((customer) => {
           return (

@@ -60,7 +60,7 @@ const BookingForm = () => {
     }
   }, [state.errors]);
   return (
-    <div className="z-10 flex flex-col items-center justify-center max-w-6xl w-full gap-8 custm-pad md:p-0">
+    <div className="z-10 flex flex-col items-center justify-center max-w-6xl w-full gap-8 custm-pad lg:p-0">
       <div className="flex flex-col gap-8 w-full">
         <Card shadow="sm" className="w-full p-10">
           <CardBody className="overflow-visible p-0">

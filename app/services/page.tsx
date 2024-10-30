@@ -19,10 +19,10 @@ const Services = () => {
     <div className="z-0 flex flex-col items-center max-w-full gap-8 mb-40">
       <div className="relative z-1 flex flex-col items-center w-full max-w-6xl h-[50vh] gap-8 p-10 text-center justify-center bg-[url('/images/discount-jamie-unsplash.jpg')] bg-cover bg-center opacity-1">
         <div className="absolute z-1 inset-0 bg-black opacity-50"></div>
-        <p className="z-10 md:text-5xl text-4xl text-white font-bold">
+        <p className="z-10 xs:text-2xl sm:text-4xl md:text-5xl text-white font-bold">
           Expert Beauty Services for Radiant Results
         </p>
-        <p className="z-10 text-3xl">Learn more about what we offer</p>
+        <p className="z-10 xs:text-xl sm:text-3xl">Learn more about what we offer</p>
         <div className="z-10 w-32 h-1 bg-danger"></div>
         <Button
           radius="none"
@@ -34,11 +34,11 @@ const Services = () => {
           Book an appointement
         </Button>
       </div>
-      <p className="z-10 md:text-6xl text-4xl font-bold text-left max-w-6xl w-full custm-pad md:p-0">
+      <p className="z-10 md:text-6xl sm:text-4xl xs:text-2xl font-bold text-left max-w-6xl w-full custm-pad lg:p-0">
         Our services
       </p>
 
-      <div className="z-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center max-w-6xl w-full gap-8 custm-pad md:p-0">
+      <div className="z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center justify-center max-w-6xl w-full gap-8 custm-pad lg:p-0">
         {services.map((service, index) => (
           <div key={index} className="flex flex-col gap-8 max-w-full">
             <Card
@@ -57,7 +57,7 @@ const Services = () => {
                 />
               </CardBody>
               <CardFooter className="flex-col items-start gap-8 p-10">
-                <b className="text-3xl">{service.name}</b>
+                <b className="xs:text-xl sm:text-3xl">{service.name}</b>
                 <div className="w-32 h-1 bg-pink-600"></div>
                 <p className="text-default-500 text-left">
                   {service.description}

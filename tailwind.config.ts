@@ -16,6 +16,9 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "bg-blackOverlay":"linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100% )",
       },
+      screens: {
+        'xs': '320px',
+      },
     },
   },
   darkMode: "class",

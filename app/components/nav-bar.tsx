@@ -51,7 +51,7 @@ export default function NavBar() {
           <Link href="/" className="flex items-center gap-4">
             <Image src={logo} alt="logo" width={60} height={60} />
 
-            <p className="font-bold text-inherit">Jess Beauty Studio</p>
+            <p className="font-bold text-inherit md:hidden lg:block">Jess Beauty Studio</p>
           </Link>
         </NavbarBrand>
       </NavbarContent>

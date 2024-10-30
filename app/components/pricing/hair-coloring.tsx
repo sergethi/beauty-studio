@@ -5,8 +5,8 @@ import { hairColor } from "../../lib/data";
 
 const HairColoring = () => {
   return (
-    <div className="z-10 flex md:flex-row flex-col w-full max-w-6xl items-center justify-center gap-28 custm-pad md:p-0">
-      <div className="flex-shrink-0 w-full max-w-2xl">
+    <div className="z-10 flex md:flex-row flex-col w-full max-w-6xl items-center justify-center gap-28 custm-pad lg:p-0">
+      <div className="flex-shrink-0 w-full xs:max-w-2xl md:max-w-md lg:max-w-2xl">
         <Image
           className="object-cover w-full h-auto"
           alt="salon"
@@ -14,7 +14,7 @@ const HairColoring = () => {
         />
       </div>
       <div className="flex flex-col items-center w-full max-w-md">
-        <p className="md:text-6xl text-4xl font-bold mb-8">Hair Coloring</p>
+        <p className="sm:text-4xl xs:text-xl font-bold mb-8">Hair Coloring</p>
         <div className="w-full">
           {hairColor.map((service, index) => (
             <div

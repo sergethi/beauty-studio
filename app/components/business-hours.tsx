@@ -25,7 +25,7 @@ const BusinessHours:React.FC<BusinessHoursProps> = ({ className1 = "", className
         />
       </div>
       <div className={`w-full max-w-md ${className2}`}>
-        <p className="text-6xl font-bold">Open hours</p>
+        <p className="xs:text-3xl sm:text-6xl font-bold">Open hours</p>
         <div className="mt-4 mb-6">
           {openHours.map((hour, index) => (
             <p

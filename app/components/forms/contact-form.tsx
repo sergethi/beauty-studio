@@ -36,7 +36,7 @@ const ContactForm = () => {
   }, [state.errors]);
 
   return (
-    <div className="z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center justify-center max-w-6xl w-full min-h-[734px] gap-8 custm-pad md:p-0">
+    <div className="z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center justify-center max-w-6xl w-full min-h-[734px] gap-8 custm-pad lg:p-0">
       <div className=" flex flex-col max-w-full h-full">
         <Card shadow="sm" className="max-w-xl w-full p-10 h-full">
           <CardBody className="overflow-visible p-0 h-full">
